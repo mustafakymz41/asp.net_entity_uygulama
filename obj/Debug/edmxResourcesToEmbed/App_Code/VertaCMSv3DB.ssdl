@@ -1,0 +1,393 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VertaCMSDBv3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="250" />
+    <Property Name="Gsm" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" />
+    <Property Name="WebSite" Type="nvarchar" MaxLength="250" />
+    <Property Name="Address" Type="text" />
+    <Property Name="LanguageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Contents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="FullContent" Type="text" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerReviews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="CustomerImageUrl" Type="text" />
+    <Property Name="CustomerCompany" Type="nvarchar" MaxLength="250" />
+    <Property Name="CustomerNameSurname" Type="nvarchar" MaxLength="250" />
+    <Property Name="CustomerComment" Type="text" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="FileUrl" Type="text" />
+    <Property Name="RowsId" Type="int" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Galleries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="ImageUrl" Type="text" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="RowsId" Type="int" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedUserId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HumanResources">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameSurname" Type="nvarchar" MaxLength="250" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="250" />
+    <Property Name="Note" Type="text" />
+    <Property Name="FileCv" Type="text" />
+    <Property Name="IPAddress" Type="text" />
+    <Property Name="PathInfo" Type="text" />
+    <Property Name="HttpReferer" Type="text" />
+    <Property Name="BrowserInfo" Type="text" />
+    <Property Name="BrowserLanguage" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Flag" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="LangName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LangShort" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="LicenseControl">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="IsEmail" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'vertaweb_densaletiket.dbo.LogError' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="LogError">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LogLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="IPAddress" Type="text" />
+    <Property Name="PathInfo" Type="text" />
+    <Property Name="HttpReferer" Type="text" />
+    <Property Name="BrowserInfo" Type="text" />
+    <Property Name="BrowserLanguage" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ModulId" Type="int" />
+    <Property Name="MenuName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="MenuID" Type="int" />
+    <Property Name="Parent" Type="int" />
+    <Property Name="Rows" Type="int" />
+    <Property Name="LevelId" Type="int" />
+    <Property Name="Seo" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoUrl" Type="text" />
+    <Property Name="PageSeoTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="PageSeoDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="PageSeoKeywords" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsParent" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+    <Property Name="LanguageId" Type="int" />
+  </EntityType>
+  <EntityType Name="Modules">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectorId" Type="int" Nullable="false" />
+    <Property Name="ModulName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ModulDescription" Type="text" />
+    <Property Name="ModulSeo" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModulUrl" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="News">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="NewsImageUrl" Type="text" />
+    <Property Name="NewsTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="NewsContent" Type="text" />
+    <Property Name="NewsSeo" Type="nvarchar" MaxLength="250" />
+    <Property Name="PageSeoTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="PageSeoDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="PageSeoKeywords" Type="nvarchar" MaxLength="500" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Newsletters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Popups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PopupName" Type="nvarchar" MaxLength="250" />
+    <Property Name="ImageUrl" Type="text" />
+    <Property Name="LinkUrl" Type="text" />
+    <Property Name="Time" Type="int" />
+    <Property Name="StartDate" Type="date" />
+    <Property Name="FinishDate" Type="date" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="500" />
+    <Property Name="ProductDescription" Type="text" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="RowsId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <EntityType Name="Sectors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectorName" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="SettingsGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DomainLicense" Type="nvarchar" MaxLength="500" />
+    <Property Name="SiteName" Type="nvarchar" MaxLength="500" />
+    <Property Name="SiteAddress" Type="nvarchar" MaxLength="500" />
+    <Property Name="LicenseFinishDate" Type="datetime" />
+    <Property Name="MailTypeId" Type="int" />
+    <Property Name="ToMail" Type="nvarchar" MaxLength="250" />
+    <Property Name="SenderEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="SenderEmailPassword" Type="nvarchar" MaxLength="250" />
+    <Property Name="SeoTitle" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoDescription" Type="nvarchar" MaxLength="500" />
+    <Property Name="SeoKeywords" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsLogLogin" Type="bit" />
+    <Property Name="IsConstruction" Type="bit" />
+  </EntityType>
+  <EntityType Name="SettingsMailTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MailTypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Slides">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SlideName" Type="nvarchar" MaxLength="150" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="ImageUrl" Type="text" />
+    <Property Name="RowsId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="IsDelete" Type="bit" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameSurname" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="text" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersDeparments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Videos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuId" Type="int" />
+    <Property Name="VideoName" Type="nvarchar" MaxLength="500" />
+    <Property Name="VideoUrl" Type="text" />
+    <Property Name="RowsId" Type="int" />
+    <Property Name="IsYoutube" Type="bit" />
+    <Property Name="LanguageId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUserId" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'vertaweb_densaletiket.dbo.VLogLogin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VLogLogin">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="NameSurname" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserId" Type="int" />
+    <Property Name="NameSurname" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IPAddress" Type="text" />
+    <Property Name="PathInfo" Type="text" />
+    <Property Name="HttpReferer" Type="text" />
+    <Property Name="BrowserInfo" Type="text" />
+    <Property Name="BrowserLanguage" Type="text" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'vertaweb_densaletiket.dbo.VUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="DepartmentId" />
+      <PropertyRef Name="DepartmentName" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="NameSurname" />
+      <PropertyRef Name="Photo" />
+      <PropertyRef Name="IsActive" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="IsDelete" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="NameSurname" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="150" />
+    <Property Name="Photo" Type="text" Nullable="false" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="IsDelete" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="VertaCMSDBv3ModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contents" EntityType="Self.Contents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerReviews" EntityType="Self.CustomerReviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Galleries" EntityType="Self.Galleries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HumanResources" EntityType="Self.HumanResources" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LicenseControl" EntityType="Self.LicenseControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogLogin" EntityType="Self.LogLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu" EntityType="Self.Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Modules" EntityType="Self.Modules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Newsletters" EntityType="Self.Newsletters" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Popups" EntityType="Self.Popups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sectors" EntityType="Self.Sectors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SettingsGeneral" EntityType="Self.SettingsGeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SettingsMailTypes" EntityType="Self.SettingsMailTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slides" EntityType="Self.Slides" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UsersDeparments" EntityType="Self.UsersDeparments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LogError" EntityType="Self.LogError" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [LogError].[Id] AS [Id]
+    FROM [dbo].[LogError] AS [LogError]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VLogLogin" EntityType="Self.VLogLogin" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VLogLogin].[Id] AS [Id], 
+    [VLogLogin].[UserId] AS [UserId], 
+    [VLogLogin].[NameSurname] AS [NameSurname], 
+    [VLogLogin].[IPAddress] AS [IPAddress], 
+    [VLogLogin].[PathInfo] AS [PathInfo], 
+    [VLogLogin].[HttpReferer] AS [HttpReferer], 
+    [VLogLogin].[BrowserInfo] AS [BrowserInfo], 
+    [VLogLogin].[BrowserLanguage] AS [BrowserLanguage], 
+    [VLogLogin].[CreatedDate] AS [CreatedDate]
+    FROM [dbo].[VLogLogin] AS [VLogLogin]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VUsers" EntityType="Self.VUsers" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VUsers].[Id] AS [Id], 
+    [VUsers].[DepartmentId] AS [DepartmentId], 
+    [VUsers].[DepartmentName] AS [DepartmentName], 
+    [VUsers].[Username] AS [Username], 
+    [VUsers].[Password] AS [Password], 
+    [VUsers].[NameSurname] AS [NameSurname], 
+    [VUsers].[Email] AS [Email], 
+    [VUsers].[Phone] AS [Phone], 
+    [VUsers].[Photo] AS [Photo], 
+    [VUsers].[IsActive] AS [IsActive], 
+    [VUsers].[CreatedDate] AS [CreatedDate], 
+    [VUsers].[IsDelete] AS [IsDelete]
+    FROM [dbo].[VUsers] AS [VUsers]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>
